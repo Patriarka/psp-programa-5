@@ -58,25 +58,25 @@ public class RegressaoLinearMultipla {
 
                 RealMatrix matrizAtransposta = matrizA.transpose();
 
-                LUDecomposition decomposition = new LUDecomposition(matrizAtransposta.multiply(matrizA));
+                LUDecomposition decomposicao = new LUDecomposition(matrizAtransposta.multiply(matrizA));
 
-                RealMatrix auxiliar = decomposition.getSolver().getInverse();
+                RealMatrix auxiliar = decomposicao.getSolver().getInverse();
 
                 RealMatrix matrizFinal  = auxiliar.multiply(matrizAtransposta.multiply(matrizB));
 
-                double[][] matrizX = realMatrixToDouble(matrizFinal);
+                double[][] matrizX = realMatrixParaDouble(matrizFinal);
 
                 return matrizX;
         }
 
-        private static double[][] realMatrixToDouble(RealMatrix realMatrix) {
-                int numRows = realMatrix.getRowDimension();
-                int numCols = realMatrix.getColumnDimension();
+        private static double[][] realMatrixParaDouble(RealMatrix realMatrix) {
+                int numLinhas = realMatrix.getRowDimension();
+                int numColunas = realMatrix.getColumnDimension();
 
-                double[][] matrizX = new double[numRows][numCols];
+                double[][] matrizX = new double[numLinhas][numColunas];
 
-                for (int i = 0; i < numRows; i++) {
-                        for (int j = 0; j < numCols; j++) {
+                for (int i = 0; i < numLinhas; i++) {
+                        for (int j = 0; j < numColunas; j++) {
                                 matrizX[i][j] = realMatrix.getEntry(i, j);
                         }
                 }
