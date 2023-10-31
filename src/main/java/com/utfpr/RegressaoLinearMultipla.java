@@ -64,6 +64,12 @@ public class RegressaoLinearMultipla {
 
                 RealMatrix realMatrix = auxiliar.multiply(matrizAtransposta.multiply(matrizB));
 
+                double[][] matrizX = realMatrixToDouble(realMatrix);
+
+                return matrizX;
+        }
+
+        private static double[][] realMatrixToDouble(RealMatrix realMatrix) {
                 int numRows = realMatrix.getRowDimension();
                 int numCols = realMatrix.getColumnDimension();
 
@@ -74,7 +80,6 @@ public class RegressaoLinearMultipla {
                                 matrizX[i][j] = realMatrix.getEntry(i, j);
                         }
                 }
-
                 return matrizX;
         }
 }
