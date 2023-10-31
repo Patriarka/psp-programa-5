@@ -14,7 +14,7 @@ public class RegressaoLinearMultipla {
         private double[][] extrairVariaveisDependentes() {
                 ListaEncadeada.No noAtual = listaEncadeada.obterNo(0);
 
-                int tamanho = listaEncadeada.tamanho();
+                int tamanho = listaEncadeada.getTamanho();
 
                 double[][] matrizA = new double[tamanho][4];
 
@@ -36,7 +36,7 @@ public class RegressaoLinearMultipla {
         private double[][] extrairVariaveisIndependentes() {
                 ListaEncadeada.No noAtual = listaEncadeada.obterNo(0);
 
-                int tamanho = listaEncadeada.tamanho();
+                int tamanho = listaEncadeada.getTamanho();
 
                 double[][] matrizB = new double[tamanho][1];
 

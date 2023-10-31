@@ -3,8 +3,11 @@ package com.utfpr;
 public class ListaEncadeada {
         private final Cabeca cabeca;
 
+        private int tamanho;
+
         public ListaEncadeada() {
                 this.cabeca = new Cabeca();
+                this.tamanho = 0;
         }
 
         public void adicionarNo(int identificador, int linhasAdicionadas, int linhasReutilizadas, int linhasModificadas, int tempoDesenvolvimento, int posicao) {
@@ -24,6 +27,8 @@ public class ListaEncadeada {
                         novo.setProximo(noAtual.getProximo());
                         noAtual.setProximo(novo);
                 }
+
+                this.tamanho++;
         }
 
         private static void validarPosicao(int posicao) {
@@ -50,19 +55,11 @@ public class ListaEncadeada {
         }
 
         public void adicionarNoFinalLista(int identificador, int linhasAdicionadas, int linhasReutilizadas, int linhasModificadas, int tempoDesenvolvimento) {
-                adicionarNo(identificador, linhasAdicionadas, linhasReutilizadas, linhasModificadas, tempoDesenvolvimento, tamanho());
+                adicionarNo(identificador, linhasAdicionadas, linhasReutilizadas, linhasModificadas, tempoDesenvolvimento, getTamanho());
         }
 
-        public int tamanho() {
-                int tamanho = 0;
-
-                ListaEncadeada.No noAtual = obterNo(0);
-
-                while (noAtual != null) {
-                        tamanho++;
-                        noAtual = noAtual.getProximo();
-                }
-                return tamanho;
+        public int getTamanho() {
+                return this.tamanho;
         }
 
         public class No {
