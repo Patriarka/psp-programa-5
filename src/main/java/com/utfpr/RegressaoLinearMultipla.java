@@ -62,9 +62,9 @@ public class RegressaoLinearMultipla {
 
                 RealMatrix auxiliar = decomposition.getSolver().getInverse();
 
-                RealMatrix realMatrix = auxiliar.multiply(matrizAtransposta.multiply(matrizB));
+                RealMatrix matrizFinal  = auxiliar.multiply(matrizAtransposta.multiply(matrizB));
 
-                double[][] matrizX = realMatrixToDouble(realMatrix);
+                double[][] matrizX = realMatrixToDouble(matrizFinal);
 
                 return matrizX;
         }
